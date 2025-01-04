@@ -13,6 +13,7 @@ let loginuser=()=>
   .then((d)=>{
     if(d.data)
     {
+      console.log(d.data)
       user.setislogin(true);
     }
     else
