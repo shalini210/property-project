@@ -7,6 +7,7 @@ import userContext from './context/userContext'
 import Home from './components/Home'
 import axios from 'axios'
 import {Route,Routes} from "react-router-dom"
+import { Link } from 'react-router'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import profileContext from './context/profileContext'
@@ -18,6 +19,7 @@ useEffect(()=>
 },[])
   return (
     <>
+    <Link to="/register">Register</Link>
 <h1>this is outside of routes from app </h1>
     <userContext.Provider value={{islogin:login,setislogin:setlogin}}>
       <profileContext.Provider 
@@ -27,8 +29,9 @@ useEffect(()=>
     <Route path='/' element={<Home></Home>}></Route>
     <Route path='/login' element={<Login></Login>}></Route>
     <Route path='/logout' element={<Logout></Logout>}></Route>
+<Route path='/register' element={<UserRegistration></UserRegistration>}></Route>
   </Routes>
-  
+
   </profileContext.Provider>
   <h1>this is outside of routes from app </h1>
   </userContext.Provider>

@@ -1,11 +1,22 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import axios from 'axios'
+import {  useNavigate } from 'react-router';
+import userContext from '../context/userContext';
 export default function UserRegistration() {
   const [msg,setmsg]=useState("");
   let nameref = useRef("")
   let pwdref = useRef("")
   let emailref = useRef("")
   let contactref = useRef("")
+  let user = useContext(userContext)
+  const Navigate = useNavigate()
+  useEffect(()=>{
+    console.log(user)
+    if(user.islogin)
+    {
+    Navigate("/")
+    }
+  },[])
   let addUser = ()=>
   {
     let data = {username:nameref.current.value
@@ -38,6 +49,12 @@ export default function UserRegistration() {
     </p>
     <p>
       password : <input type="text"  ref={pwdref} className="textbox"/>
+    </p>
+    <p>
+      User Type : <select>
+        <option value="Buyer/Owner">Buyer/Owner</option>
+        <option value="Agent/Builder">Agent/Builder</option>
+      </select>
     </p>
     <div className='grid grid-cols-2 gap-2 w-1/2'>
     <input type="button" className='bg-green-400 '
