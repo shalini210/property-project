@@ -4,6 +4,10 @@
 @layer components{
     .textbox
     {
-        @apply border-0  border-b-2 border-fuchsia-400
+        @apply border h-5 w-full border-fuchsia-400
+    }
+    .btn
+    {
+        @apply border-2 bg-blue-500 text-center text-white font-bold
     }
 }

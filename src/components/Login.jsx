@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useContext, useRef, useState } from 'react'
+import profileContext from '../context/profileContext';
 import userContext from '../context/userContext'
 export default function Login() {
   let emailref = useRef("")
   let pwdref = useRef("");
 let user = useContext(userContext);
+
+let profileData = useContext(profileContext)
+
 const [msg,setmsg ]=useState("");
 let loginuser=()=>
 {
@@ -14,6 +18,7 @@ let loginuser=()=>
     if(d.data)
     {
       console.log(d.data)
+      profileData.setUserProfileData(d.data)
       user.setislogin(true);
     }
     else
