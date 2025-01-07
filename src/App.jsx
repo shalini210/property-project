@@ -11,6 +11,9 @@ import { Link } from 'react-router'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import profileContext from './context/profileContext'
+import Togglelogin from './components/Togglelogin'
+import UserProfile from './components/UserProfile'
+import AddProperty from './components/agentbuilder/AddProperty'
 function App() {
 const [login,setlogin]=useState(false)
 const [userProfileData,setUserProfileData]=useState();
@@ -19,9 +22,10 @@ useEffect(()=>
 },[])
   return (
     <>
-    <Link to="/register">Register</Link>
-<h1>this is outside of routes from app </h1>
+    
+
     <userContext.Provider value={{islogin:login,setislogin:setlogin}}>
+      <Togglelogin></Togglelogin>
       <profileContext.Provider 
       value={{userProfileData:userProfileData,setUserProfileData:setUserProfileData}}>
   {/* <UserRegistration></UserRegistration> */}
@@ -30,10 +34,12 @@ useEffect(()=>
     <Route path='/login' element={<Login></Login>}></Route>
     <Route path='/logout' element={<Logout></Logout>}></Route>
 <Route path='/register' element={<UserRegistration></UserRegistration>}></Route>
+<Route path='/userprofile' element={<UserProfile></UserProfile>}></Route>
+<Route path='/addproperty' element={<AddProperty></AddProperty>}></Route>
   </Routes>
 
   </profileContext.Provider>
-  <h1>this is outside of routes from app </h1>
+
   </userContext.Provider>
     </>
   )

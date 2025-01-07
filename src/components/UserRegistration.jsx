@@ -8,6 +8,7 @@ export default function UserRegistration() {
   let pwdref = useRef("")
   let emailref = useRef("")
   let contactref = useRef("")
+  let typeref = useRef("");
   let user = useContext(userContext)
   const Navigate = useNavigate()
   useEffect(()=>{
@@ -21,7 +22,8 @@ export default function UserRegistration() {
   {
     let data = {username:nameref.current.value
       ,pwd:pwdref.current.value,email:emailref.current.value,
-      contact:contactref.current.value,verified:false}
+      contact:contactref.current.value,verified:false,
+      type:typeref.current.value}
     axios.post("http://localhost:8080/user",data)
     .then((d)=>{
       setmsg("User Registered, please verify your account")
@@ -51,7 +53,7 @@ export default function UserRegistration() {
       password : <input type="text"  ref={pwdref} className="textbox"/>
     </p>
     <p>
-      User Type : <select>
+      User Type : <select ref={typeref}>
         <option value="Buyer/Owner">Buyer/Owner</option>
         <option value="Agent/Builder">Agent/Builder</option>
       </select>

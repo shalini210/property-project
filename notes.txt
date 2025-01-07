@@ -1,0 +1,13 @@
+photos : single or multiple
+title: basic description
+date of posting
+catpet area: in sqft
+status: Ready to Move, Possestion in year
+details:
+furnished:
+Booking price : 
+Depositite
+REnt : 
+contact person name :
+contact person no :
+age of construction 
