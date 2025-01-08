@@ -16,15 +16,16 @@ import UserProfile from './components/UserProfile'
 import AddProperty from './components/agentbuilder/AddProperty'
 function App() {
 const [login,setlogin]=useState(false)
+const [userType,setuserType]=useState("")
 const [userProfileData,setUserProfileData]=useState();
 useEffect(()=>
 {
 },[])
   return (
     <>
-    
-
-    <userContext.Provider value={{islogin:login,setislogin:setlogin}}>
+       <userContext.Provider value={
+        {islogin:login,setislogin:setlogin,
+        userType:userType,setuserType:setuserType}}>
       <Togglelogin></Togglelogin>
       <profileContext.Provider 
       value={{userProfileData:userProfileData,setUserProfileData:setUserProfileData}}>
