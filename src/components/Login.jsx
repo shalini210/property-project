@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useRef, useState } from 'react'
+import { useNavigate } from 'react-router';
 import profileContext from '../context/profileContext';
 import userContext from '../context/userContext'
 export default function Login() {
+  let navigate = useNavigate()
   let emailref = useRef("")
   let pwdref = useRef("");
 let user = useContext(userContext);
@@ -17,9 +19,11 @@ let loginuser=()=>
   .then((d)=>{
     if(d.data)
     {
-      console.log(d.data)
       profileData.setUserProfileData(d.data)
+      user.setuserType(d.data[0].type)
       user.setislogin(true);
+
+    navigate("/")
     }
     else
     {
