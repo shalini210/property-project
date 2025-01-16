@@ -8,7 +8,9 @@ import { Link } from 'react-router'
 export default function Togglelogin() {
     let user = useContext(userContext)
     let uifalse =<div> <Link to="/register">Register</Link> | <Link to="/login">Login</Link></div>
-    let uitrue =<div><Link to="/userprofile">Profile</Link> | <Link to="/logout">Logout</Link></div>
+    let uitrue =<div>
+      <Link to="/userprofile">Profile</Link> | <Link to="/logout">Logout</Link>
+      | <Link to = "/changepassword">Change Password</Link></div>
 
   return (
     <div>

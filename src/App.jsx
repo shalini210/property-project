@@ -14,6 +14,7 @@ import profileContext from './context/profileContext'
 import Togglelogin from './components/Togglelogin'
 import UserProfile from './components/UserProfile'
 import AddProperty from './components/agentbuilder/AddProperty'
+import ChangePwd from './components/ChangePwd'
 function App() {
 const [login,setlogin]=useState(false)
 const [userType,setuserType]=useState("")
@@ -37,6 +38,7 @@ useEffect(()=>
 <Route path='/register' element={<UserRegistration></UserRegistration>}></Route>
 <Route path='/userprofile' element={<UserProfile></UserProfile>}></Route>
 <Route path='/addproperty' element={<AddProperty></AddProperty>}></Route>
+<Route path="/changepassword" element={<ChangePwd></ChangePwd>}></Route>
   </Routes>
 
   </profileContext.Provider>
