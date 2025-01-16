@@ -1,18 +1,29 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import profileContext from '../context/profileContext'
 import Logout from './Logout'
-
+import userContext from '../context/userContext'
+import { useNavigate } from 'react-router'
 export default function UserProfile() {
+  
   let profileData = useContext(profileContext)
   let userNameRef = useRef("");
   let emailRef = useRef("");
   let contactRef = useRef("");
+  const navigate = useNavigate()
   useEffect(()=>
   {
+    if(profileData.userProfileData==undefined)
+    {
+      console.log("in if ")
+      navigate("/login")
+    }
+    else
+    {
      let u = profileData.userProfileData[0];
      userNameRef.current.value=u.username;
      emailRef.current.value=u.email;
      contactRef.current.value=u.contact;
+    }
   },[])
   return (
     <>
